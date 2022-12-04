@@ -20,11 +20,12 @@ jobs:
         with:
           python-version: 3.11
       - name: Install Dependencies
-        run:
+        run: |
           python3 -m pip3 install --upgrade pip
           pip3 install -r requirements.txt
       - name: Testing
-        run: python3 manage.py test
+        run: |
+          python3 manage.py test
 
 
 
