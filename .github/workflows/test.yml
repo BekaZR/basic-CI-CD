@@ -1,0 +1,32 @@
+name: Django Tests
+
+
+on:
+  push:
+    brances:
+      - master
+  pull_request:
+    brances: 
+      - master
+
+jobs:
+  build:
+    run_on: ubuntu-latest
+
+    step:
+      - uses: actions/checkout@v2
+      - name: Set up python3.11
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Install Dependencies
+        run:
+          python3 -m pip3 install --upgrade pip
+          pip3 install -r requirements.txt
+      - name: Testing
+        run: python3 manage.py test
+
+
+
+
+        
